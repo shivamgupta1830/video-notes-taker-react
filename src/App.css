@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="text"] {
+  padding: 10px;
+  margin: 20px 0;
+  width: 75%;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+.video {
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.video-info {
+  width: 75%;
+}
+hr {
+  width: 84%;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 50px;
+  width: 80%;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+.notes hr {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.notes-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.notes-input input {
+  padding: 20px;
+  width: 96%;
+}
+
+.notes ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.notes li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  margin: 10px 0;
+  padding: 10px;
+
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+.notes-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+  border-radius: 10px;
+}
+.timestamp a {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(84, 84, 255);
+}
+
+.notes button {
+  padding: 10px;
+  margin-left: 5px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  border: 1px solid rgb(184, 184, 184);
+
+  transition: all 0.5s ease-in-out;
+}
+
+.notes button:hover {
+  background-color: rgb(187, 187, 187);
 }
