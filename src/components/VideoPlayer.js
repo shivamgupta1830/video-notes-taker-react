@@ -28,7 +28,7 @@ const VideoPlayer = ({ videoId, onTimeUpdate, playerRef }) => {
 
   const opts = {
     height: "390",
-    width: "640",
+    width: "720",
     playerVars: {
       autoplay: 1,
     },
@@ -36,7 +36,6 @@ const VideoPlayer = ({ videoId, onTimeUpdate, playerRef }) => {
 
   return (
     <YouTube
-      className="video"
       videoId={videoId}
       opts={opts}
       onReady={onReady}

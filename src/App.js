@@ -75,7 +75,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>YouTube Video Note Taker</h1>
+      <h1>Youtube Video Note Taker</h1>
       <input
         type="text"
         value={currentVideoId}
@@ -84,13 +84,15 @@ const App = () => {
         }}
         placeholder="Enter the youtube video ID..."
       />
+
       <VideoPlayer
         videoId={currentVideoId}
         onTimeUpdate={handleTimeUpdate}
         playerRef={playerRef}
       />
+
       <div className="video-info">
-        <h2>Title</h2>
+        <h2>{videoInfo.title}</h2>
         <p>{videoInfo.description}</p>
       </div>
       <hr />

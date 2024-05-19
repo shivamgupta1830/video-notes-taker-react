@@ -13,18 +13,21 @@ body {
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  max-width: 100%;
 }
 
 input[type="text"] {
   padding: 10px;
   margin: 20px 0;
-  width: 75%;
+  width: 40%;
   border-radius: 10px;
   border: 1px solid grey;
 }
 .video {
-  border-radius: 5px;
+  width: 200%;
+  text-align: center;
+  border-radius: 50%;
+  background-color: blue;
 }
 
 .video-info {
@@ -40,14 +43,15 @@ hr {
   justify-content: space-between;
   align-items: start;
   margin-top: 50px;
-  width: 80%;
+  width: 60%;
   padding: 25px;
   border-radius: 10px;
   border: 1px solid grey;
+  margin-bottom: 50px;
 }
 .notes hr {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .notes-input {
@@ -55,12 +59,23 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  position: relative;
 }
 
 .notes-input input {
-  padding: 20px;
+  padding: 15px;
+  margin-top: 35px;
   width: 96%;
+
+  word-break: break-all;
+}
+
+.notes-input button {
+  margin-top: 10px;
+  position: absolute;
+  top: -25px;
+  right: 0px;
 }
 
 .notes ul {

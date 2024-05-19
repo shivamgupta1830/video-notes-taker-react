@@ -20,9 +20,7 @@ const Notes = ({
   const handleAddNote = () => {
     if (editingNote !== null) {
       const updatedNotes = notes.map((note, index) =>
-        index === editingNote
-          ? { ...note, text: noteText, date: new Date().toLocaleString() }
-          : note
+        index === editingNote ? { ...note, text: noteText } : note
       );
       updateNote(updatedNotes);
       setEditingNote(null);
@@ -30,7 +28,11 @@ const Notes = ({
       const newNote = {
         time: currentTime,
         text: noteText,
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleDateString("en-IN", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }),
       };
       const updatedNotes = [...notes, newNote];
       addNote(updatedNotes);
@@ -67,6 +69,10 @@ const Notes = ({
   return (
     <div className="notes">
       <h2>Notes</h2>
+      <p>
+        All your notes at a single place. Click on any note to go to specific
+        timestamp in the video.
+      </p>
       <hr />
       <div className="notes-input">
         <button onClick={handleAddNote}>
