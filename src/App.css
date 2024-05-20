@@ -23,12 +23,6 @@ input[type="text"] {
   border-radius: 10px;
   border: 1px solid grey;
 }
-.video {
-  width: 200%;
-  text-align: center;
-  border-radius: 50%;
-  background-color: blue;
-}
 
 .video-info {
   width: 75%;
@@ -114,11 +108,12 @@ hr {
   margin-left: 5px;
   background-color: rgb(245, 245, 245);
   border-radius: 10px;
-  border: 1px solid rgb(184, 184, 184);
+  border: 1px solid rgb(0, 0, 0);
 
-  transition: all 0.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .notes button:hover {
-  background-color: rgb(187, 187, 187);
+  background-color: rgb(0, 0, 0);
+  color: rgb(245, 245, 245);
 }

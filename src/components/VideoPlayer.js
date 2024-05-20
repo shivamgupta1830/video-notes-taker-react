@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import YouTube from "react-youtube";
 
-const VideoPlayer = ({ videoId, onTimeUpdate, playerRef }) => {
+const VideoPlayer = React.memo(({ videoId, onTimeUpdate, playerRef }) => {
   const onReady = (event) => {
     const ytPlayer = event.target;
     if (playerRef) {
@@ -21,7 +21,7 @@ const VideoPlayer = ({ videoId, onTimeUpdate, playerRef }) => {
   };
 
   useEffect(() => {
-    if (playerRef.current) {
+    if (!!playerRef.current) {
       playerRef.current.loadVideoById(videoId);
     }
   }, [videoId, playerRef]);
@@ -42,6 +42,6 @@ const VideoPlayer = ({ videoId, onTimeUpdate, playerRef }) => {
       onStateChange={onStateChange}
     />
   );
-};
+});
 
 export default VideoPlayer;

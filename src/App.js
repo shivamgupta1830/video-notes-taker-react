@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import VideoPlayer from "./components/VideoPlayer";
 import Notes from "./components/Notes";
 
@@ -14,21 +14,6 @@ const App = () => {
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem(currentVideoId)) || [];
     setNotes(savedNotes);
-
-    // fetch(
-    //   `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${currentVideoId}&key=AIzaSyBnvFfZaXf6z6TFFRU5e9lGXcd-nJ4xSCM`
-    // )
-    //   .then((response) => {
-    //     const videoData = response.data.items[0];
-    //     console.log(videoData);
-    //     setVideoInfo({
-    //       title: videoData.title,
-    //       description: videoData.description,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error in fetching video details:", error);
-    //   });
 
     try {
       const fetchdata = async () => {
@@ -53,25 +38,40 @@ const App = () => {
     }
   }, [currentVideoId]);
 
-  const handleTimeUpdate = (time) => {
-    setCurrentTime(time);
-  };
+  const handleTimeUpdate = useCallback(
+    (time) => {
+      // console.log("onTimeUpdate", "important");
+      setCurrentTime(time);
+    },
+    [setCurrentTime]
+  );
 
-  const handleAddNote = (newNotes) => {
-    localStorage.setItem(currentVideoId, JSON.stringify(newNotes));
-    setNotes(newNotes);
-  };
+  const handleAddNote = useCallback(
+    (newNotes) => {
+      localStorage.setItem(currentVideoId, JSON.stringify(newNotes));
+      setNotes(newNotes);
+    },
+    [setNotes, currentVideoId]
+  );
 
-  const handleUpdateNote = (updatedNotes) => {
-    localStorage.setItem(currentVideoId, JSON.stringify(updatedNotes));
-    setNotes(updatedNotes);
-  };
+  const handleUpdateNote = useCallback(
+    (updatedNotes) => {
+      localStorage.setItem(currentVideoId, JSON.stringify(updatedNotes));
+      setNotes(updatedNotes);
+    },
+    [setNotes, currentVideoId]
+  );
 
-  const handleDeleteNote = (index) => {
-    const updatedNotes = notes.filter((note, noteIndex) => noteIndex !== index);
-    localStorage.setItem(currentVideoId, JSON.stringify(updatedNotes));
-    setNotes(updatedNotes);
-  };
+  const handleDeleteNote = useCallback(
+    (index) => {
+      const updatedNotes = notes.filter(
+        (note, noteIndex) => noteIndex !== index
+      );
+      localStorage.setItem(currentVideoId, JSON.stringify(updatedNotes));
+      setNotes(updatedNotes);
+    },
+    [notes, currentVideoId, setNotes]
+  );
 
   return (
     <div className="App">
@@ -93,7 +93,11 @@ const App = () => {
 
       <div className="video-info">
         <h2>{videoInfo.title}</h2>
-        <p>{videoInfo.description}</p>
+        <div>
+          {videoInfo.description.split("\n").map((line) => (
+            <p>{line}</p>
+          ))}
+        </div>
       </div>
       <hr />
       <Notes
