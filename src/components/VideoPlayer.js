@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import YouTube from "react-youtube";
 
 const VideoPlayer = React.memo(({ videoId, onTimeUpdate, playerRef }) => {
@@ -20,11 +20,11 @@ const VideoPlayer = React.memo(({ videoId, onTimeUpdate, playerRef }) => {
     }
   };
 
-  useEffect(() => {
-    if (!!playerRef.current) {
-      playerRef.current.loadVideoById(videoId);
-    }
-  }, [videoId, playerRef]);
+  // useEffect(() => {
+  //   if (!!playerRef.current) {
+  //     playerRef.current.loadVideoById(videoId);
+  //   }
+  // }, [videoId, playerRef]);
 
   const opts = {
     height: "390",

@@ -40,7 +40,6 @@ const App = () => {
 
   const handleTimeUpdate = useCallback(
     (time) => {
-      // console.log("onTimeUpdate", "important");
       setCurrentTime(time);
     },
     [setCurrentTime]
@@ -94,8 +93,8 @@ const App = () => {
       <div className="video-info">
         <h2>{videoInfo.title}</h2>
         <div>
-          {videoInfo.description.split("\n").map((line) => (
-            <p>{line}</p>
+          {videoInfo.description.split("\n").map((line, index) => (
+            <p key={index}>{line}</p>
           ))}
         </div>
       </div>

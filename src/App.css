@@ -27,6 +27,7 @@ input[type="text"] {
 .video-info {
   width: 75%;
 }
+
 hr {
   width: 84%;
 }
@@ -43,6 +44,7 @@ hr {
   border: 1px solid grey;
   margin-bottom: 50px;
 }
+
 .notes hr {
   width: 100%;
   margin-bottom: 40px;
@@ -89,6 +91,7 @@ hr {
   border-radius: 10px;
   border: 1px solid grey;
 }
+
 .notes-content {
   display: flex;
   flex-direction: column;
@@ -97,6 +100,7 @@ hr {
   gap: 10px;
   border-radius: 10px;
 }
+
 .timestamp a {
   text-decoration: none;
   font-weight: 600;

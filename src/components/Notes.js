@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 const Notes = ({
   videoId,
@@ -56,7 +56,7 @@ const Notes = ({
     if (playerRef.current) {
       playerRef.current.seekTo(time, true);
     } else {
-      console.warn("Player reference is not set yet");
+      console.log("Player reference is not set yet");
     }
   };
 
