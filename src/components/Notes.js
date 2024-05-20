@@ -31,7 +31,7 @@ const Notes = ({
         date: new Date().toLocaleDateString("en-IN", {
           day: "numeric",
           month: "short",
-          year: "numeric",
+          year: "2-digit",
         }),
       };
       const updatedNotes = [...notes, newNote];
